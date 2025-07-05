@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuros en la Altura | Oportunidades para la Juventud Puneña</title>
+    
+    <!-- Importación de la fuente desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GENERALES Y RESETEO --- */
+        :root {
+            --color-primario: #345e83; /* Azul profundo del cielo */
+            --color-secundario: #d4a373; /* Ocre de la tierra */
+            --color-texto: #333333;
+            --color-fondo-claro: #f9f9f9;
+            --color-blanco: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-texto);
+            line-height: 1.6;
+            background-color: var(--color-blanco);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-blanco);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--color-primario);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--color-primario);
+            text-decoration: none;
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li a {
+            padding: 0 1rem;
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--color-secundario);
+        }
+
+        /* --- SECCIÓN 1: HÉROE --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1596723737158-693175373a97?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            /* IMAGEN SUGERIDA: Joven de espaldas mirando el paisaje de la Puna. */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h3 {
+            font-size: 1.5rem;
+            color: var(--color-blanco);
+            font-weight: 400;
+        }
+
+        .hero .scroll-down {
+            margin-top: 2rem;
+            color: var(--color-blanco);
+            text-decoration: none;
+            border: 2px solid var(--color-blanco);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .hero .scroll-down:hover {
+            background-color: var(--color-blanco);
+            color: var(--color-primario);
+        }
+
+        /* --- SECCIÓN 2: EL DESAFÍO --- */
+        #desafio .content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        #desafio .text-content {
+            flex: 1;
+        }
+
+        #desafio .image-content {
+            flex: 1;
+        }
+
+        #desafio img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- SECCIÓN 3: CAUSAS --- */
+        #causas {
+            background-color: var(--color-fondo-claro);
+        }
+
+        .columns-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .column img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .column h3 {
+            color: var(--color-secundario);
+        }
+
+        /* --- SECCIÓN 4: HISTORIAS --- */
+        .historias-grid {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .historia-card {
+            flex: 1;
+            background: var(--color-blanco);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .historia-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .historia-card .historia-text {
+            padding: 1.5rem;
+        }
+
+        .historia-card blockquote {
+            font-style: italic;
+            border-left: 3px solid var(--color-secundario);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .historia-card cite {
+            font-weight: 700;
+            color: var(--color-primario);
+        }
+
+        /* --- SECCIÓN 5: MISIÓN --- */
+        #mision {
+            background-color: var(--color-fondo-claro);
+        }
+
+        #mision img {
+            display: block;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 10px;
+        }
+
+        #mision ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        #mision li {
+            background: var(--color-blanco);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--color-primario);
+        }
+
+        /* --- SECCIÓN 6: LLAMADA A LA ACCIÓN --- */
+        #accion {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            text-align: center;
+        }
+
+        #accion h2 {
+            color: var(--color-blanco);
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: var(--color-blanco);
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: var(--color-secundario);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--color-secundario);
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #2b2b2b;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        footer h3 {
+            color: var(--color-blanco);
+        }
+        
+        .social-links a {
+            color: #a0a0a0;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--color-secundario);
+        }
+        
+        .footer-text {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 3rem 0; }
+
+            .navbar .container {
+                flex-direction: column;
+            }
+            .navbar ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #desafio .content-wrapper {
+                flex-direction: column;
+            }
+
+            .columns-container {
+                flex-direction: column;
+            }
+
+            .historias-grid {
+                flex-direction: column;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ======== NAVEGACIÓN ======== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#inicio" class="logo">Futuros en la Altura</a>
+            <ul>
+                <li><a href="#desafio">El Desafío</a></li>
+                <li><a href="#historias">Historias</a></li>
+                <li><a href="#mision">Nuestra Misión</a></li>
+                <li><a href="#accion">Súmate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======== SECCIÓN 1: HÉROE ======== -->
+    <header class="hero" id="inicio">
+        <h1>Futuros en la Altura</h1>
+        <h3>Redefiniendo el mañana para la juventud de la Puna.</h3>
+        <a href="#desafio" class="scroll-down">DESCUBRE MÁS ↓</a>
+    </header>
+
+    <main>
+        <!-- ======== SECCIÓN 2: EL DESAFÍO SILENCIOSO ======== -->
+        <section id="desafio">
+            <div class="container">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h2>Un Horizonte Vasto, Oportunidades Limitadas</h2>
+                        <p>En la inmensidad de la Puna, donde el cielo toca la tierra, vive una generación de jóvenes en una encrucijada. Son jóvenes que, tras terminar la escuela, no encuentran un camino claro. No están en las aulas universitarias ni tienen un empleo formal.</p>
+                        <p>Esta realidad, a menudo etiquetada como "nini" (ni estudia, ni trabaja), esconde una problemática más profunda en el altiplano: es el resultado del aislamiento geográfico, la falta de acceso a educación superior pertinente y un mercado laboral que no ha logrado integrarlos. No es falta de ganas, es falta de puentes hacia el futuro.</p>
+                    </div>
+                    <div class="image-content">
+                        <!-- IMAGEN SUGERIDA: Primer plano de un joven pensativo con fondo de adobe o paisaje. -->
+                        <img src="ymagenes/hombre-lo-alto-montanas-mira-sol-poniendose-horizonte-puesta-sol-lleno-nubes-vista-atras-ia-generativa_446633-10106.avif" alt="Joven de la puna mirando el horizonte">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN 3: LAS RAÍCES DEL PROBLEMA ======== -->
+        <section id="causas">
+            <div class="container">
+                <h2>¿Por Qué Sucede Esto en la Puna?</h2>
+                <div class="columns-container">
+                    <div class="column">
+                        <img src="ymagenes/descargar.webp" alt="Icono de Aislamiento"/>
+                        <h3>Aislamiento y Brecha Digital</h3>
+                        <p>La distancia a los centros urbanos y la escasa conectividad a internet dificultan el acceso a la formación online y a trabajos remotos, creando una barrera invisible.</p>
+                    </div>
+                    <div class="column">
+                        <img src="https://img.icons8.com/ios-filled/100/d4a373/book.png" alt="Icono de Educación"/>
+                        <h3>Educación Desconectada</h3>
+                        <p>La oferta educativa local a menudo no se alinea con las habilidades del siglo XXI ni con las vocaciones de los jóvenes, generando frustración.</p>
+                    </div>
+                    <div class="column">
+                        <img src="ymagenes/OIP.webp" alt="Icono de Migración"/>
+                        <h3>Migración y Desarraigo</h3>
+                        <p>Ante la falta de perspectivas, muchos jóvenes talentosos se ven forzados a abandonar sus comunidades en busca de un futuro incierto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN 4: HISTORIAS QUE INSPIRAN ======== -->
+        <section id="historias">
+            <div class="container">
+                <h2>Detrás de la Etiqueta, Hay Talento</h2>
+                <div class="historias-grid">
+                    <div class="historia-card">
+                        <!-- IMAGEN SUGERIDA: Joven mujer con textiles andinos modernos. -->
+                        <img src="ymagenes/descargar (1).webp" alt="Joven artesana de la Puna">
+                        <div class="historia-text">
+                            <blockquote>"Heredó el arte del tejido de su abuela. Sueña con crear una marca que combine diseños andinos con moda contemporánea, pero no sabe cómo vender sus productos online."</blockquote>
+                            <cite>MARÍA, 20 AÑOS.</cite>
+                        </div>
+                    </div>
+                    <div class="historia-card">
+                        <!-- IMAGEN SUGERIDA: Joven hombre reparando algo, mostrando ingenio. -->
+                        <img src="ymagenes/xd.webp">
+                        <div class="historia-text">
+                            <blockquote>"Tiene una habilidad innata para la mecánica. Es el 'técnico' no oficial de su comunidad. Le encantaría estudiar formación profesional, pero el instituto más cercano está a 5 horas de viaje."</blockquote>
+                            <cite>JAVIER, 22 AÑOS.</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN 5: NUESTRA MISIÓN ======== -->
+        <section id="mision">
+            <div class="container">
+                <h2>Creemos en Puentes, no en Barreras</h2>
+                <p style="text-align: center; max-width: 800px; margin: auto;">Nuestra misión es simple y poderosa: <strong>conectar el talento de la juventud puneña con las oportunidades del presente.</strong> No buscamos dar asistencialismo, sino herramientas para que ellos mismos construyan su futuro, aquí, en su tierra.</p>
+                <!-- IMAGEN SUGERIDA: Grupo de jóvenes trabajando juntos y sonriendo. -->
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" alt="Jóvenes en un taller de formación">
+                <ul>
+                    <li><strong>Educación Conectada:</strong> Llevamos talleres de habilidades digitales, emprendimiento y oficios modernos a las comunidades.</li>
+                    <li><strong>Emprendimiento con Identidad:</strong> Apoyamos proyectos que revaloricen la cultura local: turismo, gastronomía y artesanía digital.</li>
+                    <li><strong>Red de Mentores:</strong> Conectamos a los jóvenes con profesionales que los guían y los inspiran a través de mentorías virtuales.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN 6: SÚMATE AL CAMBIO ======== -->
+        <section id="accion">
+            <div class="container">
+                <h2>Tu Ayuda Traza un Nuevo Horizonte</h2>
+                <p>El futuro de la Puna está en sus jóvenes. Sé parte de la solución.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">APORTA A UN PROYECTO</a>
+                    <a href="#" class="btn btn-secondary">SÉ UN MENTOR VOLUNTARIO</a>
+                    <a href="#" class="btn btn-primary">COMPARTE LA MISIÓN</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- ======== PIE DE PÁGINA ======== -->
+    <footer>
+        <div class="container">
+            <h3>Futuros en la Altura</h3>
+            <p>info@futurosenlaaltura.org</p>
+            <div class="social-links">
+                <a href="#">Instagram</a> |
+                <a href="#">Facebook</a> |
+                <a href="#">LinkedIn</a>
+            </div>
+            <p class="footer-text">Un proyecto dedicado a sembrar oportunidades para la juventud de la Puna.<br>&copy; 2023 Futuros en la Altura. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
